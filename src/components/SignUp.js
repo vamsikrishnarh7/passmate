@@ -28,7 +28,7 @@ const SignUp = () => {
     <div className='w-[90%] sm:w-[50%] text-white p-5 mx-auto flex flex-col items-center'>
       <p className='text-4xl sm:text-5xl font-bold mb-5'>Create your account</p>
       <p className='mb-8'>Already registered? <button onClick={handleSingIn}>SignIn</button></p>
-      <form className='flex flex-col gap-2  sm:w-[60%] p-10 bg-[rgba(255,255,255)] text-black rounded-lg items-center'>
+      <form className='flex flex-col gap-2  sm:w-[60%] p-10 bg-[rgba(255,255,255)] text-black rounded-lg items-center' onSubmit={validate}>
       {passwordErr && <span className='text-red-600 ring-1 ring-red-400 px-2 py-1 rounded'>Password missmatch</span>}  
       <div className='flex flex-col gap-2'>
           <label>Username</label>
@@ -41,7 +41,7 @@ const SignUp = () => {
         <div className='flex flex-col gap-2'>
           <label>Re-enter Password</label>
           <input name='re-password' type='text' className='border-2 border-gray-300 rounded p-1 focus:outline-none focus:border-indigo-500 focus:ring-2' required onChange={handleChange}/>
-          <button type='submit' className='mt-5 font-bold text-white bg-indigo-600 p-1 rounded hover:bg-indigo-700' onClick={validate}>Sign Up</button>
+          <button type='submit' className='mt-5 font-bold text-white bg-indigo-600 p-1 rounded hover:bg-indigo-700'>Sign Up</button>
           </div>
       
         
