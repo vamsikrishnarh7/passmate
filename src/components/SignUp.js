@@ -17,9 +17,12 @@ const SignUp = () => {
   }
   const validate = (e) => {
     e.preventDefault()
+    console.log(data.password)
+    console.log(data.reEnterPassword)
     if(data.password != data.reEnterPassword){
-      setPasswordErr(false);
+      setPasswordErr(true);
     }
+    else setPasswordErr(false);
   }
   const handleChange = (e) => {
     setData({...data, [e.target.name]:e.target.value} )
@@ -40,7 +43,7 @@ const SignUp = () => {
         </div>
         <div className='flex flex-col gap-2'>
           <label>Re-enter Password</label>
-          <input name='re-password' type='text' className='border-2 border-gray-300 rounded p-1 focus:outline-none focus:border-indigo-500 focus:ring-2' required onChange={handleChange}/>
+          <input name='reEnterPassword' type='text' className='border-2 border-gray-300 rounded p-1 focus:outline-none focus:border-indigo-500 focus:ring-2' required onChange={handleChange}/>
           <button type='submit' className='mt-5 font-bold text-white bg-indigo-600 p-1 rounded hover:bg-indigo-700' onClick={validate}>Sign Up</button>
           </div>
       
