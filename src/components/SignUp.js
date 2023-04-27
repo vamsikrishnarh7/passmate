@@ -17,8 +17,8 @@ const SignUp = () => {
   }
   const validate = (e) => {
     e.preventDefault()
-    if(data.password !== data.reEnterPassword){
-      setPasswordErr(!passwordErr);
+    if(data.password != data.reEnterPassword){
+      setPasswordErr(false);
     }
   }
   const handleChange = (e) => {
