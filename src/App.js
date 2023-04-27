@@ -1,10 +1,16 @@
+import { Routes, Route } from "react-router-dom";
+import Hero from "./components/Hero";
+import NavBar from "./components/NavBar";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
     <>
-    <div className='bg-purple-700 '>
-      <h1>hello</h1>
-    </div>
+      <NavBar />
+      <Routes>
+        <Route exact path="/" element={<Hero />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
     </>
   );
 }
