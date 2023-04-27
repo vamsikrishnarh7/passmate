@@ -28,7 +28,7 @@ const SignUp = () => {
     <div className='w-[90%] sm:w-[50%] text-white p-5 mx-auto flex flex-col items-center'>
       <p className='text-4xl sm:text-5xl font-bold mb-5'>Create your account</p>
       <p className='mb-8'>Already registered? <button onClick={handleSingIn}>SignIn</button></p>
-      <form className='flex flex-col gap-2 w-[80%] sm:w-[60%] p-10 bg-[rgba(255,255,255)] text-black rounded-lg items-center'>
+      <form className='flex flex-col gap-2  sm:w-[60%] p-10 bg-[rgba(255,255,255)] text-black rounded-lg items-center'>
       {passwordErr && <span className='text-red-600 ring-1 ring-red-400 px-2 py-1 rounded'>Password missmatch</span>}  
       <div className='flex flex-col gap-2'>
           <label>Username</label>
