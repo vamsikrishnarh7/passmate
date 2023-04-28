@@ -18,7 +18,7 @@ const SignUp = () => {
 
   const handleSingIn = (e) => {
     e.preventDefault()
-    navigate("/signin");
+    navigate("/auth/signin");
   }
 
   const handleChange = (e) => {
@@ -41,6 +41,7 @@ const SignUp = () => {
         if(!passwordErr){
           await createUser(data.email,data.password)
           console.log("user created")
+          navigate("/all-accounts")
         }
       }catch(e){
         setErr(e.message)        
