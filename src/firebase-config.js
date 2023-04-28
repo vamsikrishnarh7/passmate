@@ -5,16 +5,16 @@ import {getStorage} from "firebase/storage";
 import {getAuth} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID
+  apiKey: "AIzaSyDaHomLx4ZFGtqGzgJLjGFYmuiOBya3W3Q",
+  authDomain: "passmate-f9e07.firebaseapp.com",
+  projectId: "passmate-f9e07",
+  storageBucket: "passmate-f9e07.appspot.com",
+  messagingSenderId: "925127990054",
+  appId: "1:925127990054:web:0fbe3ec21b9cae57bc3fe7"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth();
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

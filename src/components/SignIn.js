@@ -10,16 +10,16 @@ const SignIn = () => {
     const [data,setData] = useState(initialState);
     const [passwordErr, setPasswordErr] = useState(false);
     const validate = (e) => {
-        e.preventDefault()
-        console.log(data.password)
-        console.log(data.reEnterPassword)
-        if(data.password != data.reEnterPassword){
-          setPasswordErr(true);
-        }
-        else setPasswordErr(false);
+      e.preventDefault()
+      console.log(data.password)
+      console.log(data.reEnterPassword)
+      if(data.password != data.reEnterPassword){
+        setPasswordErr(true);
       }
-      const handleChange = (e) => {
-        setData({...data, [e.target.name]:e.target.value} )
+      else setPasswordErr(false);
+    }
+    const handleChange = (e) => {
+      setData({...data, [e.target.name]:e.target.value} )
     }
   return (
     <div className='w-[90%] sm:w-[50%] text-white p-5 mx-auto flex flex-col items-center'>
