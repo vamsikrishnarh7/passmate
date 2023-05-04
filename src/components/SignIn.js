@@ -18,6 +18,7 @@ const SignIn = () => {
       e.preventDefault()
       try{
         await signIn(data.email,data.password)
+        navigate("/vault")
         console.log("signed in")
       }catch(e){
         if(e.code == 'auth/wrong-password'){
