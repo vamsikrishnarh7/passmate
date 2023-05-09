@@ -37,10 +37,17 @@ const NavBar = () => {
             {!nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}            
         </div>
         <div className={!nav ? 'bg-gray-900 fixed left-0 top-0 w-[60%] h-full border-r-2 border-r-gray-900 ease-in-out duration-500 z-[999]' : 'fixed left-[-100%]'}>
-            <h1 className='text-3xl font-bold p-4'>PassMate</h1>    
+            <Link to="/" ><h1 className='text-3xl font-bold p-4'>PassMate</h1></Link>    
             <ul className='pt-24 uppercase ml-3 text-bold'>
-                <li className='p-4 rounded-lg border-b-2 border-b-gray-600'>Home</li>
-                <li className='p-4 rounded-lg border-b-2 border-b-gray-600'>SignIn/Up</li>
+                <Link to="/"><li className='p-4 rounded-lg border-b-2 border-b-gray-600'>Home</li></Link>
+                {auth?.currentUser ? (
+                    <div className='flex gap-1 p-4 rounded-lg border-b-2 border-b-gray-600'>
+                    <img src='./socials-logos/user.png' className='bg-white rounded-full' />  
+                    <li className='text-white'>{auth?.currentUser?.displayName || "hello"}</li>
+                </div>
+                ) : (<li className='p-4 rounded-lg border-b-2 border-b-gray-600'>SignIn/Up</li>)
+                }
+                
                 <li className='p-4 rounded-lg border-b-2 border-b-gray-600'>About</li>
                 {auth?.currentUser && <li className='p-4' onClick={handleLogout}>Logout</li>}
             </ul>

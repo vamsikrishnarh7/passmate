@@ -1,7 +1,8 @@
 import { collection, doc, getDoc,addDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { auth, db } from "../firebase-config";
+import { toast } from 'react-toastify';
 
 const initialState = {
   userName: "",
@@ -13,6 +14,7 @@ const SelectAccountContainer = () => {
   const { id } = useParams();
   const [account, setAccount] = useState({});
   const [newAccount, setNewAccount] = useState(initialState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     id && getAccountDetails();
@@ -39,6 +41,17 @@ const SelectAccountContainer = () => {
       imgURL : account.img
     });
     console.log(res);
+    toast.success('Details saved', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    navigate("/vault")
   };
 
   return (

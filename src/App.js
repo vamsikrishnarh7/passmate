@@ -9,7 +9,8 @@ import SelectAccount from "./components/SelectAccount";
 import SelectAccountContainer from "./components/SelectAccountContainer";
 import { useContext, useEffect, useState } from "react";
 import Admin from "./components/Admin";
-import { auth } from "./firebase-config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const {user} = useContext(UserContext);
@@ -30,6 +31,18 @@ function App() {
           <Route exact path="/add-account/select" element={<SelectAccount />} />
           <Route exact path="/add-account/select/add/:id" element={<SelectAccountContainer />}/>
         </Routes>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
     </>
   );
 }

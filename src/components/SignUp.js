@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UserAuth, UserContext } from '../context/AuthContext'
+import { UserContext } from '../context/AuthContext'
+import { toast } from 'react-toastify';
 const initialState = {
   email : "",
   password : "",
@@ -42,6 +43,16 @@ const SignUp = () => {
         if(!passwordErr){
           await createUser(data.email,data.password)
           console.log("user created")
+          toast.success('Account created', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
           navigate("/all-accounts")
         }
       }catch(e){
