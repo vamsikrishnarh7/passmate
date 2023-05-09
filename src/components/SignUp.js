@@ -53,7 +53,7 @@ const SignUp = () => {
             progress: undefined,
             theme: "light",
           });
-          navigate("/all-accounts")
+          navigate("/")
         }
       }catch(e){
         setErr(e.message)        
