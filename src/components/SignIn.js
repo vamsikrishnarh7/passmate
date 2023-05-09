@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { UserAuth } from '../context/AuthContext';
+import React, { useContext, useState } from 'react'
+import { UserAuth, UserContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const initialState = {
@@ -12,7 +12,8 @@ const SignIn = () => {
     const [data,setData] = useState(initialState);
     const [passwordErr, setPasswordErr] = useState(false);
     const navigate = useNavigate();
-    const {signIn} = UserAuth();
+    // const {signIn} = UserAuth();
+    const {signIn} = useContext(UserContext)
 
     const handleSignIn = async (e) => {
       e.preventDefault()

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UserAuth } from '../context/AuthContext'
+import { UserAuth, UserContext } from '../context/AuthContext'
 const initialState = {
   email : "",
   password : "",
@@ -12,7 +12,8 @@ const SignUp = () => {
   const [data,setData] = useState(initialState);
   const [passwordErr, setPasswordErr] = useState(false);
   const [err, setErr] = useState('');
-  const {createUser} = UserAuth();
+  // const {createUser} = UserAuth();
+  const {createUser} = useContext(UserContext);
 
   const navigate = useNavigate();
 

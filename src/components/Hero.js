@@ -1,13 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { auth } from '../firebase-config'
 
 const Hero = () => {
   return (
     <div className='w-[90%] mx-auto text-white flex flex-col items-center' >
       <h1 className='text-[55px] sm:text-[80px]'>Never use <br/><span className='bg-white text-black'>Forget Password</span> <br/>anymore</h1>
-      <Link to='/auth/signin'><button className='rounded-lg border-2 border-gray-600 mt-2 px-3 py-1 drop-shadow-[3px_3px_35px_white]'>SignIn</button>
-      </Link>
-      <p className='my-10'>Don't have account? Let's fix that <Link to="/signup"><button className='sm:ml-5 rounded-lg border-b-2 border-b-gray-600 px-3'>SignUp</button></Link></p>
+      {auth?.currentUser ? (
+        <Link to="/vault" ><button className='py-1 px-2 mb-10 mt-5 bg-white rounded-sm text-black text-xl font-bold'>Go to vault</button></Link>
+      ):(
+        <>
+        <Link to='/auth/signin'><button className='rounded-lg border-2 border-gray-600 mt-2 px-3 py-1 drop-shadow-[3px_3px_35px_white]'>SignIn</button>
+        </Link>
+        <p className='my-10'>Don't have account? Let's fix that <Link to="/signup"><button className='sm:ml-5 rounded-lg border-b-2 border-b-gray-600 px-3'>SignUp</button></Link></p>
+        </>
+      )}
       
       <div className='flex gap-5 items-center mb-6'>
 
