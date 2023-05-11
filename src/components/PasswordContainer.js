@@ -3,7 +3,7 @@ import {AiOutlineArrowRight} from 'react-icons/ai'
 const PasswordContainer = ({imgURL,accountName,userName}) => {
   return (
     <>
-    <div className='w-[90%] lg:w-[45%] flex justify-between items-center gap-5 border py-1 px-2 rounded-lg'>
+    <div className='w-[250px] h-[68px] flex justify-between items-center gap-5 border py-1 px-2 rounded-lg'>
       <div className='float-left '>
       <img src={imgURL} className='w-[48px] h-[48px] bg-white rounded-full'/>
       </div>

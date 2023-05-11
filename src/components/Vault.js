@@ -37,15 +37,17 @@ const Vault = () => {
           </button>
         </Link>
       </div>
-      <div className="container w-[90%] flex flex-col items-center gap-10 sm:flex-row sm:flex-wrap sm:justify-between sm:w-[50%] mx-auto text-white">
+      <div className="flex flex-col items-center gap-10 sm:flex-row sm:flex-wrap sm:justify-between sm:w-[50%] mx-auto mb-10 text-white">
         
         {data.map((ele)=>{
           return(
-            <PasswordContainer 
-              accountName = {ele.accountName}
-              userName = {ele.userName}
-              imgURL = {ele.imgURL}
-            />
+            <Link to={`/details/${ele.id}`} >
+              <PasswordContainer 
+                accountName = {ele.accountName}
+                userName = {ele.userName}
+                imgURL = {ele.imgURL}
+              />
+            </Link>
           )
         })}
 

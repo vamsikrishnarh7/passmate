@@ -11,6 +11,7 @@ import { useContext, useEffect, useState } from "react";
 import Admin from "./components/Admin";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Details from "./components/Details";
 
 function App() {
   const {user} = useContext(UserContext);
@@ -28,8 +29,9 @@ function App() {
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/auth/signin" element={<SignIn />} />
           <Route path="/vault" element={<RequireAuth><Vault /></RequireAuth>} />
+          <Route path="/details/:id" element={<RequireAuth><Details /></RequireAuth>} />
           <Route exact path="/add-account/select" element={<SelectAccount />} />
-          <Route exact path="/add-account/select/add/:id" element={<SelectAccountContainer />}/>
+          <Route exact path="/add-account/select/add/:id" element={<RequireAuth><SelectAccountContainer /></RequireAuth>}/>
         </Routes>
         <ToastContainer
           position="top-center"
