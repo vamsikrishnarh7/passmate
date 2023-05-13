@@ -33,14 +33,14 @@ const SelectAccountContainer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newAccount);
+    //console.log(newAccount);
     let res = await addDoc(collection(db, "vault"), {
       ...newAccount,
       userID : auth?.currentUser?.uid,
       accountName : account?.accountName,
       imgURL : account.img
     });
-    console.log(res);
+    //console.log(res);
     toast.success('Details saved', {
       position: "top-center",
       autoClose: 5000,

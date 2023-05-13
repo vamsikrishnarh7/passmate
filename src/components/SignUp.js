@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/AuthContext'
 import { toast } from 'react-toastify';
+import { addDoc, collection } from 'firebase/firestore';
+import { auth, db } from '../firebase-config';
 const initialState = {
   email : "",
   password : "",
@@ -43,6 +45,14 @@ const SignUp = () => {
         if(!passwordErr){
           await createUser(data.email,data.password)
           console.log("user created")
+          await addDoc(collection(db,"vault"),{
+            accountName:"Passmate",
+            userName:data.email,
+            password:data.password,
+            userID: auth?.currentUser?.uid,
+            notes:"",
+            imageURL:""
+          });
           toast.success('Account created', {
             position: "top-center",
             autoClose: 5000,
@@ -78,7 +88,7 @@ const SignUp = () => {
       <form className='flex flex-col gap-2  sm:w-[60%] p-10 bg-[rgba(255,255,255)] text-black rounded-lg items-center' onSubmit={handleSubmit}>
       {passwordErr && <span className='text-red-600 ring-1 ring-red-400 px-2 py-1 rounded'>{msg}</span>}  
       <div className='flex flex-col gap-2'>
-          <label>Username</label>
+          <label>Email</label>
           <input name='email' type='mail' className='border-2 border-gray-300 rounded p-1 focus:outline-none focus:border-indigo-500 focus:ring-2' required onChange={handleChange}/>
         </div>  
         <div className='flex flex-col gap-2'>
